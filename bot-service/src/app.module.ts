@@ -11,6 +11,7 @@ import {graphqlConfig} from './config/graphql.config'
 import {telegrafConfig} from './config/telegraf.config'
 import {typeOrmConfig} from './config/typeorm.config'
 import {HealthcheckModule} from './healthcheck/healthcheck.module'
+import {ApolloLoggingPlugin} from './plugins/apollo-logging.plugin'
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import {HealthcheckModule} from './healthcheck/healthcheck.module'
     TelegrafModule.forRootAsync(telegrafConfig),
     HealthcheckModule,
     BotModule
-  ]
+  ],
+  providers: [ApolloLoggingPlugin]
 })
 export class AppModule {}
